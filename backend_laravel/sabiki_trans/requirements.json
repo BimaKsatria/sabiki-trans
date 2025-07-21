@@ -1,0 +1,148 @@
+{
+    "installed": [
+        {
+            "name": "bezhansalleh/filament-shield",
+            "direct-dependency": true,
+            "homepage": "https://github.com/bezhansalleh/filament-shield",
+            "source": "https://github.com/bezhanSalleh/filament-shield/tree/3.2.6",
+            "version": "3.2.6",
+            "description": "Filament support for `spatie/laravel-permission`.",
+            "abandoned": false
+        },
+        {
+            "name": "fakerphp/faker",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": "https://github.com/FakerPHP/Faker/tree/v1.24.1",
+            "version": "v1.24.1",
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "abandoned": false
+        },
+        {
+            "name": "filament/filament",
+            "direct-dependency": true,
+            "homepage": "https://github.com/filamentphp/filament",
+            "source": "https://github.com/filamentphp/filament",
+            "version": "v3.3.20",
+            "description": "A collection of full-stack components for accelerated Laravel app development.",
+            "abandoned": false
+        },
+        {
+            "name": "knuckleswtf/scribe",
+            "direct-dependency": true,
+            "homepage": "http://github.com/knuckleswtf/scribe",
+            "source": "https://github.com/knuckleswtf/scribe/tree/5.2.1",
+            "version": "5.2.1",
+            "description": "Generate API documentation for humans from your Laravel codebase.✍",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/framework",
+            "direct-dependency": true,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/framework",
+            "version": "v12.17.0",
+            "description": "The Laravel Framework.",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/pail",
+            "direct-dependency": true,
+            "homepage": "https://github.com/laravel/pail",
+            "source": "https://github.com/laravel/pail",
+            "version": "v1.2.3",
+            "description": "Easily delve into your Laravel application's log files directly from the command line.",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/pint",
+            "direct-dependency": true,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/pint",
+            "version": "v1.22.1",
+            "description": "An opinionated code formatter for PHP.",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/sail",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": "https://github.com/laravel/sail",
+            "version": "v1.43.1",
+            "description": "Docker files for running a basic Laravel application.",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/sanctum",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": "https://github.com/laravel/sanctum",
+            "version": "v4.1.1",
+            "description": "Laravel Sanctum provides a featherweight authentication system for SPAs and simple APIs.",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/tinker",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": "https://github.com/laravel/tinker/tree/v2.10.1",
+            "version": "v2.10.1",
+            "description": "Powerful REPL for the Laravel framework.",
+            "abandoned": false
+        },
+        {
+            "name": "midtrans/midtrans-php",
+            "direct-dependency": true,
+            "homepage": "https://midtrans.com",
+            "source": "https://github.com/Midtrans/midtrans-php/tree/v2.6.2",
+            "version": "2.6.2",
+            "description": "PHP Wrapper for Midtrans Payment API.",
+            "abandoned": false
+        },
+        {
+            "name": "mockery/mockery",
+            "direct-dependency": true,
+            "homepage": "https://github.com/mockery/mockery",
+            "source": "https://github.com/mockery/mockery",
+            "version": "1.6.12",
+            "description": "Mockery is a simple yet flexible PHP mock object framework",
+            "abandoned": false
+        },
+        {
+            "name": "nunomaduro/collision",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": "https://github.com/nunomaduro/collision",
+            "version": "v8.8.0",
+            "description": "Cli error handling for console/command-line PHP applications.",
+            "abandoned": false
+        },
+        {
+            "name": "phpunit/phpunit",
+            "direct-dependency": true,
+            "homepage": "https://phpunit.de/",
+            "source": "https://github.com/sebastianbergmann/phpunit/tree/11.5.21",
+            "version": "11.5.21",
+            "description": "The PHP Unit Testing framework.",
+            "abandoned": false
+        },
+        {
+            "name": "revolution/laravel-google-sheets",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": "https://github.com/invokable/laravel-google-sheets/tree/7.1.4",
+            "version": "7.1.4",
+            "description": "Google Sheets API v4",
+            "abandoned": false
+        },
+        {
+            "name": "rupadana/filament-api-service",
+            "direct-dependency": true,
+            "homepage": "https://github.com/rupadana/api-service",
+            "source": "https://github.com/rupadana/api-service",
+            "version": "3.4.6",
+            "description": "A simple api service for supporting filamentphp",
+            "abandoned": false
+        }
+    ]
+}
