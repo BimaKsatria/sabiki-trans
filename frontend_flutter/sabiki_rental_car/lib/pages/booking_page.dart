@@ -34,8 +34,7 @@ class _BookingPageState extends State<BookingPage> {
   String? _availabilityError;
 
   // Base URL untuk API
-  final String _baseUrl =
-      'https://your-domain/api';
+  final String _baseUrl = 'https://your-domain';
 
   // Header untuk semua request API
   Map<String, String> get _apiHeaders {
@@ -99,42 +98,6 @@ class _BookingPageState extends State<BookingPage> {
     }
   }
 
-  // Future<void> _selectDate(BuildContext context, bool isPickup) async {
-  //   final DateTime? picked = await showDatePicker(
-  //     context: context,
-  //     initialDate: isPickup ? _pickupDate! : _returnDate!,
-  //     firstDate: DateTime.now(),
-  //     lastDate: DateTime.now().add(const Duration(days: 365)),
-  //   );
-
-  //   if (picked != null) {
-  //     setState(() {
-  //       if (isPickup) {
-  //         _pickupDate = picked;
-  //         // Jika returnDate sebelum atau sama dengan pickupDate yang baru, set ke satu hari setelahnya
-  //         if (_returnDate == null ||
-  //             !_returnDate!.isAfter(picked) ||
-  //             _returnDate!.isAtSameMomentAs(picked)) {
-  //           _returnDate = picked.add(const Duration(days: 1));
-  //         }
-  //       } else {
-  //         // Validasi: returnDate harus setelah pickupDate
-  //         if (picked.isBefore(_pickupDate!) ||
-  //             picked.isAtSameMomentAs(_pickupDate!)) {
-  //           ScaffoldMessenger.of(context).showSnackBar(
-  //             const SnackBar(
-  //               content: Text(
-  //                   'Tanggal pengembalian harus setelah tanggal pengambilan'),
-  //             ),
-  //           );
-  //         } else {
-  //           _returnDate = picked;
-  //         }
-  //       }
-  //     });
-  //   }
-  // }
-
   Future<void> _selectDate(BuildContext context, bool isPickup) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
@@ -163,7 +126,14 @@ class _BookingPageState extends State<BookingPage> {
           if (isPickup) {
             _pickupDate = picked;
             // Default return: 1 hari + 1 jam setelah pickup
-            _returnDate = picked.add(const Duration(days: 1));
+            //_returnDate = picked.add(const Duration(days: 1));
+            _returnDate = DateTime(
+              picked.year,
+              picked.month,
+              picked.day + 1, // tambah 1 hari dari picked
+              23, // jam 23:00 (11 malam)
+              0, // menit 0
+            );
           } else {
             // Validasi: Return harus > Pickup
             if (!picked.isAfter(_pickupDate!)) {
@@ -197,7 +167,7 @@ class _BookingPageState extends State<BookingPage> {
         body: json.encode({
           'car_id': widget.carId,
           'start_date': DateFormat('yyyy-MM-dd HH:mm:ss').format(_pickupDate!),
-          'end_date': DateFormat('yyyy-MM-dd HH:mm:ss').format(_returnDate!),
+          'end_date': DateFormat('yyyy-MM-dd').format(_returnDate!),
         }),
       );
 
@@ -248,9 +218,28 @@ class _BookingPageState extends State<BookingPage> {
     );
   }
 
+  // int get _totalDays {
+  //   if (_pickupDate == null || _returnDate == null) return 0;
+  //   return _returnDate!.difference(_pickupDate!).inDays;
+  // }
+
   int get _totalDays {
     if (_pickupDate == null || _returnDate == null) return 0;
-    return _returnDate!.difference(_pickupDate!).inDays;
+
+    final diffInHours = _returnDate!.difference(_pickupDate!).inHours;
+
+    // Minimal 1 hari
+    if (diffInHours <= 24) {
+      return 1;
+    }
+
+    // Untuk lebih dari 24 jam, hitung hari kalender (termasuk awal dan akhir)
+    final pickupDateOnly =
+        DateTime(_pickupDate!.year, _pickupDate!.month, _pickupDate!.day);
+    final returnDateOnly =
+        DateTime(_returnDate!.year, _returnDate!.month, _returnDate!.day);
+
+    return returnDateOnly.difference(pickupDateOnly).inDays + 1;
   }
 
   double get _carPriceValue => _carPrice ?? 200000.0;
